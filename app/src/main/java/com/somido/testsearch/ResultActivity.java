@@ -7,12 +7,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 public class ResultActivity extends AppCompatActivity {
 
     private TextView resultText;
     private TextView explanationText;
     private Button newEntryButton;
+    private Button searchAnotherButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,32 +28,41 @@ public class ResultActivity extends AppCompatActivity {
         resultText = findViewById(R.id.result_text);
         explanationText = findViewById(R.id.explanation_text);
         newEntryButton = findViewById(R.id.btn_entry);
+        searchAnotherButton = findViewById(R.id.search_another_btn);
 
         int[] arrayList = getIntent().getIntArrayExtra("ARRAY_LIST");
         int searchElement = getIntent().getIntExtra("SEARCH_ELEMENT", -1);
 
         String algorithm;
-        int index;
+        List<Integer> indices;
 
         if(isSorted(arrayList)){
             algorithm = "Binary Search";
-            index = binarySearch(arrayList, searchElement);
+            indices = binarySearch(arrayList, searchElement);
             explanationText.setText("Binary Search was used because the array is sorted.");
         }else{
             algorithm = "Linear Search";
-            index = linearSearch(arrayList, searchElement);
+            indices = linearSearch(arrayList, searchElement);
             explanationText.setText("Linear Search was used because the array is unsorted.");
         }
 
-        if(index != -1){
-            resultText.setText("Element found at index: " + index + " using " + algorithm);
-        }else{
-            resultText.setText("Element not found");
+
+        if(!indices.isEmpty()){
+            resultText.setText("Element Found at Indices: " + indices + " Using " + algorithm);
+        }else {
+            resultText.setText("Element not found!");
         }
 
         newEntryButton.setOnClickListener(v-> {
             Intent intent = new Intent(ResultActivity.this, ArraySizeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
+        });
+
+        searchAnotherButton.setOnClickListener(v ->{
+            Intent intent = new Intent(ResultActivity.this, SearchElementActivity.class);
+            intent.putExtra("ARRAY_LIST", arrayList);
             startActivity(intent);
             finish();
         });
@@ -64,23 +79,39 @@ public class ResultActivity extends AppCompatActivity {
         return true;
     }
 
-    private int linearSearch(int[] array, int element){
+    private List<Integer> linearSearch(int[] array, int element){
+        List<Integer> indices = new ArrayList<>();
         for (int i=0; i < array.length; i++){
             if (array[i] == element){
-                return i;
+                indices.add(i);
             }
         }
-        return -1;
+        return indices;
     }
 
-    private int binarySearch(int[] array, int element){
+    private List<Integer> binarySearch(int[] array, int element){
+        List<Integer> indices = new ArrayList<>();
         int left = 0, right = array.length - 1;
 
-        while(left <= right){
+        while(left <= right) {
             int mid = left + (right - left) / 2;
 
-            if(array[mid] == element){
-                return mid;
+            if (array[mid] == element) {
+                indices.add(mid);
+
+                int leftIndex = mid - 1;
+                while (leftIndex >= 0 && array[leftIndex] == element) {
+                    indices.add(leftIndex);
+                    leftIndex--;
+                }
+
+                int rightIndex = mid + 1;
+                while (rightIndex < array.length && array[rightIndex] == element) {
+                    indices.add(rightIndex);
+                    rightIndex++;
+                }
+                break;
+
             }
 
             if (array[mid] < element){
@@ -89,6 +120,6 @@ public class ResultActivity extends AppCompatActivity {
                 right = mid -1;
             }
         }
-        return -1;
+        return indices;
     }
 }

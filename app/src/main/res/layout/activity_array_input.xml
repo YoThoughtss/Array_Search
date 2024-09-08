@@ -18,10 +18,17 @@
             android:text="Enter Array Values"
             android:textSize="30sp"
             android:layout_gravity="center"
-            android:paddingBottom="20dp"
+            android:paddingBottom="10dp"
             android:textStyle="bold"
             android:textColor="@color/support"
             android:fontFamily="@font/eczar_bold"
+            />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="4dp"
+            android:layout_marginBottom="15dp"
+            android:background="@color/support"
             />
 
         <LinearLayout

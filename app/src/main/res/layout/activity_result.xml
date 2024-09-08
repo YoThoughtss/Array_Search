@@ -21,6 +21,7 @@
         android:gravity="center"
         />
 
+
     <TextView
         android:id="@+id/explanation_text"
         android:layout_width="wrap_content"
@@ -31,9 +32,29 @@
         android:textColor="@color/buttons"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
+        android:paddingBottom="3dp"
         android:fontFamily="@font/eczar_regular"
         />
-    
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="4dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/support"
+        />
+
+    <Button
+        android:id="@+id/search_another_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Another Value?"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/eczar_bold"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/support"
+        />
+
     <Button
         android:id="@+id/btn_entry"
         android:layout_width="wrap_content"

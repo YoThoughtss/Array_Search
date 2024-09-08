@@ -16,13 +16,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/eczar_bold"
         android:gravity="center"
         android:text="ARRAY SEARCH"
         android:textColor="@color/support"
         android:textSize="50dp"
         android:textStyle="bold" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="4dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/support"
+        />
 
     <TextView
         android:layout_width="wrap_content"
