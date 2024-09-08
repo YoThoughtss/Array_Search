@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".SearchElementActivity"
+    android:background="@color/background"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter The Element To Search"
+        android:textSize="30dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="@color/support"
+        android:layout_marginBottom="25dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/eczar_bold"
+        />
+
+    <EditText
+        android:id="@+id/search_element_input"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@color/support"
+        android:gravity="center"
+        android:inputType="numberPassword|number"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:fontFamily="@font/eczar_regular"
+        />
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/buttons"
+        android:textColor="@color/white"
+        android:fontFamily="@font/eczar_bold"
+        />
+
+</LinearLayout>

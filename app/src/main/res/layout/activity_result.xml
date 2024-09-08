@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ResultActivity">
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/eczar_bold"
+        android:paddingBottom="20dp"
+        android:textColor="@color/support"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/explanation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingTop="8dp"
+        android:textStyle="bold"
+        android:textColor="@color/buttons"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:fontFamily="@font/eczar_regular"
+        />
+    
+    <Button
+        android:id="@+id/btn_entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input Another Entry?"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/eczar_bold"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/buttons"
+        />
+
+</LinearLayout>
